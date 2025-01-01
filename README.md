@@ -7,7 +7,8 @@ Users can perform the following tasks:
 1. **Add a New Task** ✍️
 2. **View Task List** 👀
 3. **Mark a Task as Done** ✅ (which also removes it from the list or moves it to a `completed list`)
-4. **Exit the Program** 🚪
+4. **Edit a Task** ✏️
+5. **Exit the Program** 🚪
 
 ---
 
@@ -41,7 +42,16 @@ Once you have pending tasks, you can choose to mark one as done. You’ll be sho
 
 ---
 
-### 5️⃣ Exit the Program
+### 5️⃣ Edit a Task ✏️
+If you need to update the details of a task, you can select the "Edit Task" option. This will allow you to choose an existing task and modify its name or description. It's a great way to keep your tasks up to date and organized.
+
+Here’s how the editing process looks:
+
+![Edit Task](https://github.com/user-attachments/assets/af4cd399-6229-468b-99f9-4a3cba261ba3)
+
+---
+
+### 6️⃣ Exit the Program
 When you're done, simply choose to exit the program. You’ll be greeted with a farewell message like this:
 
 ![Exit](https://github.com/user-attachments/assets/00408932-b7c5-4c5c-a38f-35c614880168)
