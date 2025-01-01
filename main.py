@@ -107,17 +107,56 @@ def mark_task_done():
     if pending_tasks:
         print("-----Mark task as done-----")
         # Iterate through the whole list and print each task
-        for index, task in enumerate(pending_tasks, start=1):
-            print(f"{index}. {task}")
+        while True:
+            for index, task in enumerate(pending_tasks, start=1):
+                print(f"{index}. {task}")
 
-        task_completed = int(input("Enter task to mark as done: "))
-        completed_tasks.append(pending_tasks[task_completed - 1])
-        print(f"Task `{pending_tasks[task_completed - 1]}` completed. Well Done! ")
-        pending_tasks.pop(task_completed - 1)
-        print("\n")
+            while True:
+                try:
+                    task_completed = int(input("Enter task to mark as done (or press Enter to finish): "))
+                    if task_completed == "":
+                        return
+                    if 1<= task_completed <= len(pending_tasks):
+                        task_index = task_completed - 1
+                        break
+                    else:
+                        print("Invalid task number. Please enter a number within the range.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+
+            completed_tasks.append(pending_tasks.pop[task_index]) # pop returns the value that was removed
+            print(f"Task `{completed_tasks[-1]}` completed. Well Done! ") # access the last element on the completed list
+            print("\n")
     # if the list is empty
     else:
         print("No tasks to mark as done.")
+
+
+def edit_task():
+    if pending_tasks:
+        print("-----Edit a task-----")
+        # Iterate through the whole list and print each task
+        for index, task in enumerate(pending_tasks, start=1):
+            print(f"{index}. {task}")
+
+        while True:
+            try:
+                task_to_edit = int(input("Enter task number to edit: "))
+                if 1<= task_to_edit <= len(pending_tasks):
+                    break
+                else:
+                    print("Invalid task number. Please enter a number within the range.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+        task_index = task_to_edit - 1
+        print(f"You are editing `{pending_tasks[task_index]}`")
+        edited_task = input("\nEnter new task description: ")
+        pending_tasks[task_index] = edited_task
+        print("Task edited successfully.")
+    else:
+        print("No pending tasks to edit. Add some!")
+
 
 
 while True:
@@ -126,7 +165,8 @@ while True:
     print("a. Add a new task")
     print("b. View task lists")
     print("c. Mark a task as done")
-    print("d. Exit the program\n")
+    print("d. Edit a task")
+    print("e. Exit the program\n")
 
     # getting user choice of service to use
     user_choice = input("Enter choice of service: ").upper()
@@ -142,6 +182,8 @@ while True:
         mark_task_done()
     # user selects: Exit the program
     elif user_choice == "D":
+        edit_task()
+    elif user_choice == "E":
         print("Exiting the program! GoodBye!")
         break
     # user selects: invalid service
