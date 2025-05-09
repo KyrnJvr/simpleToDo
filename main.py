@@ -157,6 +157,11 @@ def edit_task():
     else:
         print("No pending tasks to edit. Add some!")
 
+'''
+
+ToDo: Either use database, or file to retain/store tasks
+
+'''
 
 
 while True:
